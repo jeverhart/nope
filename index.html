@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <title>Nope</title>
+        <meta property="og:title" content="Nope Button" />
+        <meta property="og:url" content="http://nope.city" />
+        <meta property="og:image" content="http://nope.city/nope-share.jpg" />
+        <style>
+            body {
+                margin:0;
+                padding:0;
+            }
+            .flex {
+                display: flex;
+                align-items:center;
+                justify-items:center;
+                text-align:center;
+                width:100%;
+                height:90vh;
+            }
+            #nope {
+                background:url(sprite.svg) no-repeat bottom left;
+                background-size:auto 100%;
+                display:block;
+                margin:0 auto;
+                height:615px;
+                width:626px;
+                border:0;
+                outline:none;
+                cursor:pointer;
+                -webkit-tap-highlight-color: transparent;
+            }
+            #nope:hover {
+                background:url(sprite.svg) no-repeat bottom center;
+                background-size:auto 100%;
+                outline:none;
+            }
+            #nope:active,
+            #nope.press{
+                background:url(sprite.svg) no-repeat bottom right;
+                background-size:auto 100%;
+                outline:none;
+            }
+            @media screen and (max-width:960px) {
+                #nope {
+                    height:calc(615px / 2);
+                    width:calc(626px / 2);
+                }
+            }
+
+            @media screen and (max-width:600px) {
+                #nope {
+                    height:calc((615px / 3) - 1px);
+                    width:calc((626px / 3) - 1px);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="flex">
+            <button id="nope"></button>
+        </div>
+        
+        <script>
+            const nopeBtn = document.getElementById("nope");
+            nopeBtn.addEventListener('touchstart', pressButton)
+            nopeBtn.addEventListener('touchend', restoreButton)
+
+            nopeBtn.addEventListener('click', sayNope)
+
+            const msg = new SpeechSynthesisUtterance();
+            msg.text = 'Nope';
+            msg.lang = 'en-US';
+
+            function pressButton(event) {
+                nopeBtn.classList.add("press");
+                event.preventDefault();
+            }    
+
+            function sayNope(ev) {
+                window.speechSynthesis.speak(msg);
+                ev.preventDefault();
+            }            
+
+            function restoreButton() {
+                nopeBtn.classList.remove("press");
+                sayNope();
+            }
+        </script>
+    </body>
+</html>
