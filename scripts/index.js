@@ -3,7 +3,7 @@ import 'firebase/analytics';
 import 'firebase/database';
 
 const counterDiv = document.getElementById('counter');
-var config = {
+const config = {
   apiKey: 'AIzaSyDEr5G5oGn-bDUdnIVODE30vkFxPq0OFXg',
   authDomain: 'nope-a74cd.firebaseapp.com',
   databaseURL: 'https://nope-a74cd.firebaseio.com/',
@@ -12,10 +12,9 @@ var config = {
 firebase.initializeApp(config);
 
 // Get a reference to the database service
-var database = firebase.database();
-var counting = 0;
+let counting = 0;
 
-var starCountRef = firebase.database().ref('nopeCounter');
+const starCountRef = firebase.database().ref('nopeCounter');
 starCountRef.on('value', function(dataSnapshot) {
   console.log(dataSnapshot.node_.value_);
   counterDiv.innerHTML = dataSnapshot.node_.value_;
