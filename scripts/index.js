@@ -1,3 +1,7 @@
+import * as firebase from 'firebase/app';
+import 'firebase/analytics';
+import 'firebase/database';
+
 const counterDiv = document.getElementById('counter');
 var config = {
   apiKey: 'AIzaSyDEr5G5oGn-bDUdnIVODE30vkFxPq0OFXg',
