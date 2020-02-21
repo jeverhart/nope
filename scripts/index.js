@@ -24,12 +24,14 @@ starCountRef.on('value', function(dataSnapshot) {
 
 function writeUserData(counter) {
   console.log('welp');
-  firebase
-    .database()
-    .ref()
-    .set({
-      nopeCounter: counter,
-    });
+  if (process.env.NODE_ENV === 'production') {
+    firebase
+      .database()
+      .ref()
+      .set({
+        nopeCounter: counter,
+      });
+  }
 }
 
 const nopeBtn = document.getElementById('nope');
