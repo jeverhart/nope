@@ -1,0 +1,26 @@
+{
+  "name": "nope",
+  "version": "1.0.0",
+  "description": "The button for all your noping needs",
+  "main": "index.html",
+  "scripts": {
+    "build": "parcel build index.html",
+    "dev": "parcel index.html",
+    "start": "npm run dev",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeverhart/nope.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jeverhart/nope/issues"
+  },
+  "homepage": "https://github.com/jeverhart/nope#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4",
+    "sass": "^1.25.0"
+  }
+}
