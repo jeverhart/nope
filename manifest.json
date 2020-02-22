@@ -3,12 +3,12 @@
     "name": "Nope Button",
     "icons": [
       {
-        "src": "./icon-192.png",
+        "src": "assets/icon-192.png",
         "type": "image/png",
         "sizes": "192x192"
       },
       {
-        "src": "./favicon.png",
+        "src": "assets/favicon.png",
         "type": "image/png",
         "sizes": "512x512"
       }
