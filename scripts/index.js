@@ -3,6 +3,7 @@ import 'firebase/analytics';
 import 'firebase/database';
 
 const counterDiv = document.getElementById('counter');
+
 const config = {
   apiKey: 'AIzaSyDEr5G5oGn-bDUdnIVODE30vkFxPq0OFXg',
   authDomain: 'nope-a74cd.firebaseapp.com',
@@ -34,8 +35,8 @@ function writeUserData(counter) {
 }
 
 const nopeBtn = document.getElementById('nope');
-nopeBtn.addEventListener('touchstart', pressButton);
-nopeBtn.addEventListener('touchend', restoreButton);
+nopeBtn.addEventListener('touchstart', handleTouchStart);
+nopeBtn.addEventListener('touchend', handleTouchEnd);
 
 nopeBtn.addEventListener('click', sayNope);
 
@@ -43,18 +44,17 @@ const msg = new SpeechSynthesisUtterance();
 msg.text = 'Nope';
 msg.lang = 'en-US';
 
-function pressButton(event) {
+function handleTouchStart(e) {
+  e.preventDefault();
+  sayNope();
   nopeBtn.classList.add('press');
-  event.preventDefault();
 }
 
-function sayNope(ev) {
+function handleTouchEnd(ev) {
+  nopeBtn.classList.remove('press');
+}
+
+function sayNope() {
   window.speechSynthesis.speak(msg);
   writeUserData(counting + 1);
-  ev.preventDefault();
-}
-
-function restoreButton(ev) {
-  nopeBtn.classList.remove('press');
-  sayNope(ev);
 }
