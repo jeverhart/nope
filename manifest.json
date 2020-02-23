@@ -1,0 +1,21 @@
+{
+    "short_name": "Nope",
+    "name": "Nope Button",
+    "icons": [
+      {
+        "src": "assets/icon-192.png",
+        "type": "image/png",
+        "sizes": "192x192"
+      },
+      {
+        "src": "assets/favicon.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+    ],
+    "start_url": "/",
+    "background_color": "#ffffff",
+    "display": "standalone",
+    "scope": "/",
+    "theme_color": "#203933"
+  }
