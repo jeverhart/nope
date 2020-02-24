@@ -18,7 +18,7 @@ let counting = 0;
 const starCountRef = firebase.database().ref('nopeCounter');
 starCountRef.on('value', function(dataSnapshot) {
   console.log(dataSnapshot.node_.value_);
-  counterDiv.innerHTML = dataSnapshot.node_.value_;
+  counterDiv.innerHTML = new Intl.NumberFormat().format(dataSnapshot.node_.value_);
   counting = dataSnapshot.node_.value_;
 });
 
