@@ -12,26 +12,69 @@ const config = {
 };
 firebase.initializeApp(config);
 
+let hasParam = false
+let isNewParam = false
+
+const mySound = document.getElementById("sound");   
+
+// Get url parameter values
+const urlParams = new URLSearchParams(window.location.search);
+
+let urlToCheck = ``
+
 // Get a reference to the database service
 let counting = 0;
 
-const starCountRef = firebase.database().ref('nopeCounter');
+let starCountRef = firebase.database().ref('nopeCounter');
+
+if (urlParams.get('group') != null) {
+  const myParam = urlParams.get('group');
+  hasParam = true
+  urlToCheck = `groups/${myParam}`
+  starCountRef = firebase.database().ref(urlToCheck + '/nopeCounter');
+}
+else {
+
+}
+
 starCountRef.on('value', function(dataSnapshot) {
-  console.log(dataSnapshot.node_.value_);
-  counterDiv.innerHTML = new Intl.NumberFormat().format(dataSnapshot.node_.value_);
-  counting = dataSnapshot.node_.value_;
+  //console.log(dataSnapshot.node_.value_);
+  
+  if(dataSnapshot.node_.value_){
+    counting = dataSnapshot.node_.value_;
+    counterDiv.innerHTML = new Intl.NumberFormat().format(dataSnapshot.node_.value_);
+  }
+  else {
+    counting = 0;
+    counterDiv.innerHTML = 0;
+  }
+  if (hasParam) {
+    mySound.play();
+    //window.speechSynthesis.speak(msg);
+  }
+  
 });
 
+
 function writeUserData(counter) {
-  console.log('welp');
-  if (process.env.NODE_ENV === 'production') {
-    firebase
-      .database()
-      .ref()
-      .set({
-        nopeCounter: counter,
-      });
-  }
+  //if (process.env.NODE_ENV === 'production'){
+    if (hasParam) {
+      firebase
+        .database()
+        .ref(urlToCheck)
+        .set({
+          nopeCounter:counter,
+        });
+    }
+    else {
+      firebase
+        .database()
+        .ref()
+        .set({
+            nopeCounter: counter,
+        });
+    }
+  //}
 }
 
 const nopeBtn = document.getElementById('nope');
@@ -55,6 +98,12 @@ function handleTouchEnd(ev) {
 }
 
 function sayNope() {
-  window.speechSynthesis.speak(msg);
+  if(hasParam){
+
+  }
+  else {
+    window.speechSynthesis.speak(msg);
+  }
+  
   writeUserData(counting + 1);
 }
