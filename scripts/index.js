@@ -49,11 +49,12 @@ starCountRef.on('value', function(dataSnapshot) {
     counting = 0;
     counterDiv.innerHTML = 0;
   }
-  if (hasParam && onload > 0) {
+  if (hasParam && onLoad > 0) {
     mySound.play();
     //window.speechSynthesis.speak(msg);
   }
   onLoad = onLoad + 1
+  console.log(onLoad)
   
 });
 
