@@ -37,6 +37,7 @@ else {
 
 }
 
+let onLoad = 0
 starCountRef.on('value', function(dataSnapshot) {
   //console.log(dataSnapshot.node_.value_);
   
@@ -48,10 +49,11 @@ starCountRef.on('value', function(dataSnapshot) {
     counting = 0;
     counterDiv.innerHTML = 0;
   }
-  if (hasParam) {
+  if (hasParam && onload > 0) {
     mySound.play();
     //window.speechSynthesis.speak(msg);
   }
+  onLoad = onLoad + 1
   
 });
 
