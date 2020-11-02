@@ -27,6 +27,16 @@ let counting = 0;
 
 let starCountRef = firebase.database().ref('nopeCounter');
 
+function makeid(length) {
+  var result           = '';
+  var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  var charactersLength = characters.length;
+  for ( var i = 0; i < length; i++ ) {
+     result += characters.charAt(Math.floor(Math.random() * charactersLength));
+  }
+  return result;
+}
+
 if (urlParams.get('group') != null) {
   const myParam = urlParams.get('group');
   hasParam = true
@@ -34,7 +44,10 @@ if (urlParams.get('group') != null) {
   starCountRef = firebase.database().ref(urlToCheck + '/nopeCounter');
 }
 else {
-
+  const myParam = makeid(5);
+  hasParam = true
+  urlToCheck = `groups/${myParam}`
+  starCountRef = firebase.database().ref(urlToCheck + '/nopeCounter');
 }
 
 let onLoad = 0
@@ -105,7 +118,8 @@ function sayNope() {
 
   }
   else {
-    window.speechSynthesis.speak(msg);
+    //window.speechSynthesis.speak(msg);
+    mySound.play();
   }
   
   writeUserData(counting + 1);
