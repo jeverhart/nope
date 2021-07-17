@@ -1,7 +1,87 @@
 body {
   font-size: 16px;
+  font-family: futura-pt-bold, sans-serif;
+  font-weight: 700;
+  font-style: normal;
   margin: 0;
   padding: 0;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  height: 100vh;
+  width: 100vw;
+}
+body.press {
+  background: red url(../assets/nope-bomb.jpg) no-repeat center center;
+  background-size: cover;
+}
+body.press * {
+  opacity: 0;
+}
+h1 {
+  font-size: 1.5rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  position: absolute;
+  top: 2.5vw;
+  left: 2.5vw;
+  margin: 0;
+  padding: 0;
+}
+.counter-wrap {
+  font-size: 1.5rem;
+  position: absolute;
+  top: 2.5vw;
+  left: auto;
+  right: 2.5vw;
+}
+.group-wrap {
+  font-size: 1.5rem;
+  position: absolute;
+  top: auto;
+  bottom: 2.5vw;
+  left: 0;
+  right: 0;
+  width: 100%;
+  text-transform: uppercase;
+  opacity: 0.5;
+  text-align: center;
+  display: flex;
+}
+a {
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  font-family: futura-pt-bold, sans-serif;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  color: black;
+  text-decoration: none;
+  display: block;
+  padding: 0.25rem;
+}
+#group {
+  margin: 0 auto;
+}
+#group input {
+  font-family: futura-pt-bold, sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  border: 4px solid #e6e6e6;
+  -webkit-appearance: none;
+}
+#group input[type="submit"] {
+  display: none;
+}
+.others-wrap {
+  font-size: 1.5rem;
+  position: absolute;
+  top: auto;
+  bottom: 2.5vw;
+  left: auto;
+  right: 2.5vw;
+  text-transform: uppercase;
+  opacity: 0.5;
 }
 .flex {
   display: flex;
@@ -12,48 +92,46 @@ body {
   height: 90vh;
 }
 #nope {
-  background: url(../assets/sprite.svg) no-repeat bottom left;
+  background: url(../assets/sprite-v2.svg) no-repeat bottom left;
   background-size: auto 100%;
   display: block;
   margin: 0 auto;
-  height: 615px;
-  width: 626px;
+  height: 402px;
+  margin-top: -4em;
+  width: 483px;
   border: 0;
   outline: none;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 }
 #nope:hover {
-  background: url(../assets/sprite.svg) no-repeat bottom center;
+  background: url(../assets/sprite-v2.svg) no-repeat bottom right;
   background-size: auto 100%;
   outline: none;
 }
 #nope:active,
 #nope.press {
-  background: url(../assets/sprite.svg) no-repeat bottom right;
+  background: url(../assets/sprite-v2.svg) no-repeat bottom right;
   background-size: auto 100%;
   outline: none;
 }
 @media screen and (max-width: 960px) {
   #nope {
-    height: calc(615px / 2);
-    width: calc(626px / 2);
+    height: calc(402px / 1.5);
+    width: calc(483px / 1.5);
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 480px) {
   #nope {
-    height: calc((615px / 3) - 1px);
-    width: calc((626px / 3) - 1px);
+    height: calc((402px / 2.5));
+    width: calc((483px / 2.5));
+  }
+  #group input {
+    font-size: 1rem;
   }
 }
-.counter-wrap {
-  color: #e6e6e6;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-size: 1rem;
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
+
+#sound {
+  opacity: 0;
 }
-#sound { opacity:0; }

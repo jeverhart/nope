@@ -13,14 +13,32 @@
 
     <link rel="shortcut icon" href="favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="stylesheet" href="https://use.typekit.net/dxy8osj.css" />
     <link rel="stylesheet" href="./styles/main.scss" />
   </head>
-  <body>
-    <audio controls="controls" id="sound"><source src="/nope.m4a" /><source src="/nope.mp3" /></audio> 
+  <body id="body">
+    <header><h1>Nope</h1></header>
+    <audio controls="controls" id="sound">
+      <source src="/nope.m4a" />
+      <source src="/nope.mp3" />
+    </audio>
     <div class="flex">
       <button id="nope"></button>
     </div>
-    <div class="counter-wrap"><span id="counter"></span> nopes & counting</div>
+    <div class="counter-wrap"><span id="counter"></span></div>
+    <div class="group-wrap">
+      <span id="group">
+        <form id="group-form">
+          <input
+            id="group-input"
+            type="text"
+            placeholder="Enter a group name"
+          />
+          <input type="submit" />
+        </form>
+      </span>
+    </div>
+    <div class="others-wrap"><span id="others"></span></div>
 
     <script src="./scripts/index.js"></script>
   </body>
