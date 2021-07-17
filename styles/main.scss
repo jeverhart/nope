@@ -11,11 +11,9 @@ body {
   width: 100vw;
 }
 body.press {
-  background: red url(../assets/nope-bomb.jpg) no-repeat center center;
-  background-size: cover;
-}
-body.press * {
-  opacity: 0;
+  // background: red url(../assets/nope-bomb.jpg) no-repeat center center;
+  // background-size: cover;
+  background: red;
 }
 h1 {
   font-size: 1.5rem;
