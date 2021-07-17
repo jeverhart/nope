@@ -57,7 +57,7 @@ if (urlParams.get("group") != null) {
   urlToCheck = `groups/${myParam}`;
   starCountRef = firebase.database().ref(urlToCheck + "/nopeCounter");
   myGroup.innerHTML =
-    "<a href='https://nope.city:1234/'>" +
+    "<a href='https://nope.city/'>" +
     myParam +
     "<span style='margin-left:10px'>&times;</span></a>";
 } else {
@@ -122,10 +122,12 @@ msg.lang = "en-US";
 function handleTouchStart(e) {
   e.preventDefault();
   sayNope();
+  nopeBtn.classList.add("press");
   body.classList.add("press");
 }
 
 function handleTouchEnd(ev) {
+  nopeBtn.classList.remove("press");
   body.classList.remove("press");
 }
 
