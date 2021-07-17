@@ -92,12 +92,12 @@ a {
   height: 90vh;
 }
 #nope {
-  background: url(../assets/sprite-v2.svg) no-repeat bottom left;
+  background: url(../assets/sprite-v3.svg) no-repeat bottom left;
   background-size: auto 100%;
   display: block;
   margin: 0 auto;
   height: 402px;
-  margin-top: -4em;
+  margin-top: -8em;
   width: 483px;
   border: 0;
   outline: none;
@@ -105,13 +105,13 @@ a {
   -webkit-tap-highlight-color: transparent;
 }
 #nope:hover {
-  background: url(../assets/sprite-v2.svg) no-repeat bottom right;
+  background: url(../assets/sprite-v3.svg) no-repeat bottom center;
   background-size: auto 100%;
   outline: none;
 }
 #nope:active,
 #nope.press {
-  background: url(../assets/sprite-v2.svg) no-repeat bottom right;
+  background: url(../assets/sprite-v3.svg) no-repeat bottom right;
   background-size: auto 100%;
   outline: none;
 }
